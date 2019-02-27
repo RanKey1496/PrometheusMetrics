@@ -1,0 +1,17 @@
+version: '3'
+services:
+  prometheus:
+    build: .
+    restart: always
+    networks: 
+      - traefik-public
+    ports:
+      - '8000'
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.frontend.rule=PathPrefixStrip:/prometheus
+        - traefik.docker.network=traefik-public
+networks:
+  traefik-public:
+    external: true
