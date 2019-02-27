@@ -13,9 +13,9 @@ const httpRequestDurationMicroseconds = new Prometheus.Histogram({
 
 const PrometheusMetrics = {
     requestCounter: new Prometheus.Counter('throughput', 'The number of request served')
-}
+};
 
-app.use(responseTime((req, res, time) => {
+app.use(responseTime((req: any, res: any, time: any) => {
     if (req.url != '/metrics') {
         httpRequestDurationMicroseconds
         .labels(req.route.path)
@@ -29,12 +29,11 @@ app.use((req, res, next) => {
         PrometheusMetrics.requestCounter.inc();
     }
     next();
-})
+});
 
 app.get('/jimbo', (req, res, next) => {
-    
     setTimeout(() => {
-        return res.json({ sopa: "du macaco" });
+        return res.json({ sopa: 'du macaco' });
     }, 2000);
 });
 
