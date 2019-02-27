@@ -1,0 +1,44 @@
+lib-cov
+*.seed
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
+
+pids
+results
+tmp
+
+#Build
+public/css/main.css
+
+# Dependency directory
+node_modules
+bower_components
+
+logs/errorsDev.log
+logs/exceptionsDev.log
+
+logs/errorsTest.log
+logs/exceptionsTest.log
+
+npm-debug.log
+
+# Editors
+.idea
+*.iml
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Ignore built ts files
+dist/**/*
+
+# Ignore results
+coverage
+
+# Ignore VSCode files
+.vscode
